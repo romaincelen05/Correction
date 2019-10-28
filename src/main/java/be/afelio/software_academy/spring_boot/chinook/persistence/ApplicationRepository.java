@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,6 +26,8 @@ import be.afelio.software_academy.spring_boot.chinook.persistence.repositories.T
 
 @Component
 public class ApplicationRepository {
+	
+	private static final Logger log = LoggerFactory.getLogger(ApplicationRepository.class);
 
 	@Autowired AlbumRepository albumRepository;
 	@Autowired TrackRepository trackRepository;
@@ -49,6 +53,7 @@ public class ApplicationRepository {
 		
 		for (TrackEntity track : trackList) {
 			list.add(track.getGenre().getName());
+			log.debug("");
 		}
 		
 		

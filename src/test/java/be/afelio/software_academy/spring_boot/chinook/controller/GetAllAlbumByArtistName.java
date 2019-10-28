@@ -8,7 +8,8 @@ public class GetAllAlbumByArtistName {
 	
 	@Test
 	public void test() {
-		assertEquals("test", "test");
+		String test = new String("Test");
+		assertEquals("Test", test);
 	}
 
 }
