@@ -83,7 +83,7 @@ public class ApplicationRepository {
 	
 	public List<AlbumDto> findAllAlbumDto() {
 		List<AlbumEntity> albumList = albumRepository.findAll();
-		List<AlbumDto> listDto = new ArrayList<AlbumDto>();
+		List<AlbumDto> listDto = new ArrayList<>();
 		
         for(AlbumEntity album : albumList) {
             listDto.add(createAlbumDto(album));
@@ -94,7 +94,7 @@ public class ApplicationRepository {
 	public List<AlbumDto> findAllAlbumDtoByArtistName(String artistName) {
 		
 		List<AlbumEntity> albumList = albumRepository.findAllByArtistNameIgnoreCase(artistName);
-		List<AlbumDto> listDto = new ArrayList<AlbumDto>();
+		List<AlbumDto> listDto = new ArrayList<>();
 		
         for(AlbumEntity album : albumList) {
             listDto.add(createAlbumDto(album));
@@ -105,7 +105,7 @@ public class ApplicationRepository {
 	public List<AlbumDto> findAllAlbumDtoByGenreName(String genreName) {
 
 		List<AlbumDto> allAlbumDto = findAllAlbumDto();
-		List<AlbumDto> listDto = new ArrayList<AlbumDto>();
+		List<AlbumDto> listDto = new ArrayList<>();
 		int cpt = 0;
 			
         for(AlbumDto album : allAlbumDto) {
@@ -123,7 +123,7 @@ public class ApplicationRepository {
 
 	public List<TrackDto> findAllTrackDtoByAlbumTitle(String title) {
 		List<TrackEntity> trackList = trackRepository.findAllByAlbumTitleIgnoreCase(title);
-		List<TrackDto> listDto = new ArrayList<TrackDto>();
+		List<TrackDto> listDto = new ArrayList<>();
 		
         for(TrackEntity track : trackList) {
             listDto.add(createTrackDto(track));
