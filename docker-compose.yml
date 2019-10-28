@@ -1,0 +1,21 @@
+version: '3'
+services:
+  db:
+    image: postgres:11.5
+    restart: always
+    environment:
+      - POSTGRESQL_DATABASE=chinook
+      - POSTGRESQL_USERNAME=postgres
+      - POSTGRESQL_PASSWORD=postgres
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  chinook:
+    depends_on:
+      - db
+    image: chinook:0.0.1-SNAPSHOT
+    ports:
+      - "8080:8080"
+    restart: always
+    environment:
+      - spring.datasource.url=jdbc:postgresql://db/chinook
